@@ -38,16 +38,22 @@
             if(playerChoice === computerChoice){
                 return "It's a tie! We both chose " + computerChoice + ".";
             }else if(playerChoice === 'rock' && computerChoice === 'scissors'){
+                playerScore++;
                 return "You win this round! Rock beats Scissors!";
             }else if(playerChoice === 'paper' && computerChoice === 'rock'){
+                playerScore++;
                 return "You win this round! Paper beats Rock!";
             }else if(playerChoice === 'scissors' && computerChoice === 'paper'){
+                playerScore++;
                 return "You win this round! Scissors beats Paper!"
             }else if(playerChoice === 'rock'){
+                computerScore++;
                 return "You lose this round! Paper beats Rock!";
             }else if(playerChoice === 'paper'){
+                computerScore++;
                 return "You lose this round! Scissors beats Paper!";
             }else{
+                computerScore++;
                 return "You lose this round! Rock beats Scissors!";
             }
         }
@@ -58,8 +64,20 @@
                 let playerSelection = getPlayerChoice();
                 alert(playRound(playerSelection, computerSelection));
             }
+
+            if(playerScore > computerScore){
+                alert(`Congratulations! You're the champ! \nWins: ${playerScore} | Losses: ${computerScore}`);
+            }else if (playerScore < computerScore){
+                alert(`Game Over! Better luck next time! \nWins: ${playerScore} | Losses: ${computerScore}`);
+            }else{
+                alert(`Tie Game! Let's try again! \nWins: ${playerScore} | Losses: ${computerScore}`);
+            }
         }
 
+        let playerScore = 0;
+        let computerScore = 0;
+
         game();
+
     </script>
 </html>
