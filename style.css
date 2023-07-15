@@ -1,10 +1,11 @@
 * {
     font-size: 32px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New';
 }
 
 body{
     margin: 0;
+    background-color: lightblue;
 }
 
 .container {
@@ -24,6 +25,10 @@ body{
 button {
     width: 200px;
     height: 200px;
+    background-color: #dddddd;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #808080;
 }
 
 .results {
