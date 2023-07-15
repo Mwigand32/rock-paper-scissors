@@ -1,0 +1,35 @@
+* {
+    font-size: 32px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+
+.selections {
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+button {
+    width: 200px;
+    height: 200px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
