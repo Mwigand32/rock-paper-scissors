@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>RoPaSc</title>
+        <title>RoPaSc v2.0</title>
     </head>
 
     <body>
@@ -14,6 +14,7 @@
             </div>
             <div class="results">
                 <p id="feed"></p>
+                <p id="feed2"></p>
             </div>
         </div>
     </body>
@@ -58,11 +59,29 @@
         function game(){
             const buttons = document.querySelectorAll('button');
             const feed = document.getElementById('feed');
+            const feed2 = document.getElementById('feed2')
+            let playerChoice = '';
             buttons.forEach((button) => {
                 button.addEventListener('click', () => {
                     feed.textContent = playRound(button.id, getComputerChoice());
+                    feed2.textContent = "Your Score: " + playerScore + " | CPU Score: " + computerScore;
+                    scoreCheck(feed);
                 })
             })
+        }
+
+        function scoreCheck(message){
+            if(playerScore === 5){
+                message.textContent = "Congratulations! You're the champ! Click any button to start a new game!";
+                playerScore = 0;
+                computerScore = 0;
+            }else if(computerScore === 5){
+                message.textContent = "Game Over! Better luck next time! Click any button to start a new game!"
+                playerScore = 0;
+                computerScore = 0;
+            }
+
+            return;
         }
 
         let playerScore = 0;
