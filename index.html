@@ -6,7 +6,16 @@
     </head>
 
     <body>
-
+        <div class="container">
+            <div class="selections">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+            <div class="results">
+                <p id="feed"></p>
+            </div>
+        </div>
     </body>
 
     <script>
@@ -19,18 +28,6 @@
                     return 'paper';
                 case 3:
                     return 'scissors';
-            }
-        }
-
-        function getPlayerChoice() {
-            let playerChoice = prompt("Rock, Paper, Scissors! Type your selection below!");
-            playerChoice = playerChoice.toLowerCase();
-            while(true){
-                if(playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors'){
-                    return playerChoice;
-                }
-                playerChoice = prompt('Invalid choice! Please type "Rock", "Paper", or "Scissors" below!');
-                playerChoice = playerChoice.toLowerCase();
             }
         }
 
@@ -59,19 +56,13 @@
         }
 
         function game(){
-            for(let i = 0; i < 5; i++){
-                let computerSelection = getComputerChoice();
-                let playerSelection = getPlayerChoice();
-                alert(playRound(playerSelection, computerSelection));
-            }
-
-            if(playerScore > computerScore){
-                alert(`Congratulations! You're the champ! \nWins: ${playerScore} | Losses: ${computerScore}`);
-            }else if (playerScore < computerScore){
-                alert(`Game Over! Better luck next time! \nWins: ${playerScore} | Losses: ${computerScore}`);
-            }else{
-                alert(`Tie Game! Let's try again! \nWins: ${playerScore} | Losses: ${computerScore}`);
-            }
+            const buttons = document.querySelectorAll('button');
+            const feed = document.getElementById('feed');
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    feed.textContent = playRound(button.id, getComputerChoice());
+                })
+            })
         }
 
         let playerScore = 0;
